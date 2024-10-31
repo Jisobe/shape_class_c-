@@ -13,13 +13,11 @@ As your exercise,
 - Use Polymorphic Collection: create a vector of Shape, put a rectangle and a circle to it, loop over the vector draw a rectangle and a circle on the console. (use late or dynamic binding)
 - Rewrite this code using unique pointer instead.
 
-
 Shape
 -background: string
 +getBackground( )
 +setBackground( )
 +void draw( );
-
 
 Rectangle
 -width: int
@@ -28,7 +26,6 @@ Rectangle
 +Rectangle(int width, int height)
 +void draw( );
 +int getArea( );
-
 
 Circle
 -radius: float
