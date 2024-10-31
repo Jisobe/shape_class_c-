@@ -18,7 +18,7 @@ class Shape{
   public:
     string getBackground() const;
     void setBackground( const string& value);
-    void draw();
+    virtual void draw() const;
 
 };
 
