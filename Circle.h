@@ -7,6 +7,7 @@ class Circle : public Shape {
 
   private:
     float radius;
+    
   public:
     Circle();
     Circle(float radius);

@@ -3,7 +3,6 @@
 #include <iostream>
 using namespace std;
 
-
 string Shape::getBackground() const{
   return background;
 }

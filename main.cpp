@@ -1,5 +1,6 @@
 #include "Circle.h"
 #include "Rectangle.h"
+#include "Shape.h"
 
 void showShape( Shape& shape){
   shape.draw();
