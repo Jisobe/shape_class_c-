@@ -13,3 +13,19 @@ void Rectangle::draw() const{
 int Rectangle::getArea() const{
   return width * height;
 }
+
+void Rectangle::setWidth( int width ){
+  this->width = width;
+}
+
+void Rectangle::setHeight( int height ){
+  this->height = height;
+}
+
+int Rectangle::getWidth() const{
+  return width;
+}
+
+int Rectangle::getHeight() const{
+  return height;
+}

@@ -13,6 +13,10 @@ class Rectangle : public Shape {
     Rectangle( int width, int height );
     void draw() const override;
     int getArea() const;
+    void setWidth( int width );
+    void setHeight( int height );
+    int getWidth() const;
+    int getHeight() const;
 
 };
 
