@@ -12,6 +12,6 @@ void Shape::setBackground( const string& value){
   background = value;
 }
 
-void Shape::draw(){
-  cout << "Drawing..." << endl;
+void Shape::draw() const{
+  cout << "Drawing a shape..." << endl;
 }
