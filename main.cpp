@@ -3,6 +3,7 @@
 #include "Shape.h"
 #include <vector>
 #include <memory>
+#include <iostream>
 using namespace std;
 
 void showShape(Shape& shape){
@@ -19,6 +20,8 @@ int main(void){
   showShape(circle1);
   showShape(rectangle1);
 
+  cout << endl << "Vector of shape pointers" << endl;
+
 //Regular pointers
   vector<Shape*> shapes;
   Circle* circlePtr;
@@ -30,23 +33,23 @@ int main(void){
   shapes.push_back(rectanglePtr);
 
   for (unsigned int i = 0; i < shapes.size(); i++) {
-    shapes.at(i)->draw();
+    showShape(*(shapes.at(i)));
   }
 
   delete circlePtr;
   delete rectanglePtr;
 
+  cout << endl << "Vector of unique shape pointers" << endl;
+
 //Smart pointers
-  vector<unique_ptr<Shape>> shapes2;
-  // unique_ptr<Circle> circlePtr2(new Circle);
-  auto circlePtr2 = make_unique<Circle>;
-  shapes2.emplace_back(circlePtr2);
-  // unique_ptr<Rectangle> rectanglePtr2(new Rectangle);
-  auto rectanglePtr2 = make_unique<Rectangle>;
-  shapes2.emplace_back(rectanglePtr2);
+  vector<unique_ptr<Shape> > shapes2;
+  unique_ptr<Circle> circlePtr2(new Circle);
+  shapes2.push_back(std::move(circlePtr2));
+  unique_ptr<Rectangle> rectanglePtr2(new Rectangle);
+  shapes2.push_back(std::move(rectanglePtr2));
 
   for (unsigned int i = 0; i < shapes2.size(); i++) {
-    shapes2.at(i)->draw();
+    showShape(*(shapes2.at(i)));
   }
 
   return 0;
