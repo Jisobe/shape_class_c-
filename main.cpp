@@ -42,8 +42,8 @@ int main(void){
   cout << endl << "Vector of unique shape pointers" << endl;
 
   vector<unique_ptr<Shape> > shapes2;
-  shapes2.push_back(std::move(make_unique<Circle>()));
-  shapes2.push_back(std::move(make_unique<Rectangle>()));
+  shapes2.push_back(make_unique<Circle>());
+  shapes2.push_back(make_unique<Rectangle>());
 
   for (const auto& shape : shapes2) {
     showShape(*shape);
