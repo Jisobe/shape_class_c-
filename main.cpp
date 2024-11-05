@@ -20,36 +20,33 @@ int main(void){
   showShape(circle1);
   showShape(rectangle1);
 
+//Regular pointer vector
   cout << endl << "Vector of shape pointers" << endl;
 
-//Regular pointers
   vector<Shape*> shapes;
-  Circle* circlePtr;
-  Rectangle* rectanglePtr;
 
-  circlePtr = new Circle;
-  shapes.push_back(circlePtr);
-  rectanglePtr = new Rectangle;
-  shapes.push_back(rectanglePtr);
+  shapes.push_back(new Circle);
+  shapes.push_back(new Rectangle);
 
-  for (unsigned int i = 0; i < shapes.size(); i++) {
-    showShape(*(shapes.at(i)));
+  for (const auto& shape : shapes) {
+    showShape(*shape);
   }
 
-  delete circlePtr;
-  delete rectanglePtr;
+  for (const auto& shape : shapes) {
+    delete shape;
+  }
 
+  // shapes.clear();
+
+//Smart pointer vector
   cout << endl << "Vector of unique shape pointers" << endl;
 
-//Smart pointers
   vector<unique_ptr<Shape> > shapes2;
-  unique_ptr<Circle> circlePtr2(new Circle);
-  shapes2.push_back(std::move(circlePtr2));
-  unique_ptr<Rectangle> rectanglePtr2(new Rectangle);
-  shapes2.push_back(std::move(rectanglePtr2));
+  shapes2.push_back(std::move(make_unique<Circle>()));
+  shapes2.push_back(std::move(make_unique<Rectangle>()));
 
-  for (unsigned int i = 0; i < shapes2.size(); i++) {
-    showShape(*(shapes2.at(i)));
+  for (const auto& shape : shapes2) {
+    showShape(*shape);
   }
 
   return 0;

@@ -10,6 +10,7 @@ class Shape{
     string background;
 
   public:
+    virtual ~Shape() = default;
     string getBackground() const;
     void setBackground( const string& value);
     virtual void draw() const;
